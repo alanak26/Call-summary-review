@@ -72,7 +72,7 @@ Keyboard: `j`/`k` move to the next/previous call, `a` accepts, `c` marks *needs 
   - the automated checks fire on the known errors and stay silent on the 5 accurate calls;
   - every suggested corrected summary passes all automated checks;
   - number words parse correctly ("two hundred and twenty" becomes 220).
-- A manual pass through the UI: navigation, evidence scrolling, verdicts persisting after a reload, the corrected-summary re-check, and JSON/CSV export.
+- The UI rendered in headless Chrome at desktop and phone widths, with highlights, finding cards, evidence chips, automated checks and transcript all displaying correctly for flagged and accurate calls.
 
 ## Known limitations
 
