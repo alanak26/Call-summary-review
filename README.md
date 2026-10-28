@@ -2,7 +2,7 @@
 
 A review tool for QA reviewers. For each collections-call summary it helps decide whether the summary faithfully represents its transcript, and whether it needs correcting before a colleague relies on it.
 
-**Live app:** _LIVE_URL_ (no login needed)
+**Live app:** https://alanak26.github.io/Call-summary-review/ (no login needed)
 
 ## How to run
 
@@ -43,7 +43,7 @@ Keyboard: `j`/`k` move to the next/previous call, `a` accepts, `c` marks *needs 
 
 ## Results from this dataset
 
-- **Accurate (5):** 001, 004, 005, 006, 007.
+- **Accurate (5):** 001, 004, 005, 006, 007. 005 and 007 have no issues at all. 001, 004 and 006 carry low-severity or uncertain notes that don't change the meaning, which shows the difference between acceptable summarising and a meaningful loss of information.
 - **Need correction (15).** The highest-risk cases:
   - 002: promise is £150 but £100 was agreed.
   - 013: "Payment made" although nothing was taken.

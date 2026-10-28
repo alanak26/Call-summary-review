@@ -52,7 +52,7 @@ function direction(call) {
 function renderQueue() {
   const items = calls.filter((c) => {
     const s = state[c.id]?.verdict;
-    if (filter === 'attention') return callFindings(c.id).length > 0;
+    if (filter === 'attention') return findings[c.id]?.suggestedVerdict === 'needs_correction';
     if (filter === 'unreviewed') return !s;
     if (filter === 'reviewed') return !!s;
     return true;
@@ -60,9 +60,9 @@ function renderQueue() {
   els.queue.innerHTML = items.map((c) => {
     const n = counts(c.id);
     const v = state[c.id]?.verdict;
-    const pills = n.high + n.medium + n.low === 0
-      ? '<span class="pill sev-ok">No issues found</span>'
-      : ['high', 'medium', 'low'].filter((k) => n[k]).map((k) => `<span class="pill sev-${k}">${n[k]} ${k}</span>`).join('');
+    const acceptable = findings[c.id]?.suggestedVerdict === 'accept';
+    const pills = (acceptable ? `<span class="pill sev-ok">${n.high + n.medium + n.low ? 'Acceptable' : 'No issues found'}</span>` : '')
+      + ['high', 'medium', 'low'].filter((k) => n[k]).map((k) => `<span class="pill sev-${k}">${n[k]} ${k}</span>`).join('');
     const status = v === 'accept' ? '<span class="status-dot accept">✓ Accepted</span>'
       : v === 'needs_correction' ? '<span class="status-dot needs_correction">✎ Correct</span>'
       : '<span class="status-dot none">Unreviewed</span>';
@@ -123,7 +123,8 @@ function renderReview() {
     <div>
       <div class="section-head"><h2>Findings <span class="pill src-analyst">Analyst</span></h2><span class="muted small">${list.length} finding${list.length === 1 ? '' : 's'}</span></div>
       <div class="cards">
-        ${list.length ? list.map((f) => findingCard(f, cs)).join('') : '<div class="empty">No meaningful errors found. The summary is consistent with the transcript and the rules.</div>'}
+        ${meta.suggestedVerdict === 'accept' ? `<div class="empty">No meaningful errors found. The summary is consistent with the transcript and the rules.${list.length ? ' The notes below are minor and do not change the meaning.' : ''}</div>` : ''}
+        ${list.map((f) => findingCard(f, cs)).join('')}
         ${meta.verifiedNotes ? `<div class="verified"><strong>What was verified:</strong> ${esc(meta.verifiedNotes)}</div>` : ''}
       </div>
     </div>

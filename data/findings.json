@@ -17,7 +17,18 @@
     "CALL-001": {
       "suggestedVerdict": "accept",
       "verifiedNotes": "Inbound (T01 service greeting). DPA verified (T03-T05). No arrears figure. Payment made with no amount (T15). Direct Debit moved to the 8th with first collection 9 November because the 8th is a Sunday (T19). Understanding confirmed (T20-T21).",
-      "findings": [],
+      "findings": [
+        {
+          "id": "001-1",
+          "type": "rule_breach",
+          "severity": "low",
+          "certainty": "uncertain",
+          "quote": "The next payment of £240",
+          "evidence": ["T05", "T19"],
+          "explanation": "£240 is the scheduled Direct Debit collection the agent stated (T19), so it is a legitimate future-plan amount. It is also identical to the arrears figure (T05), so a reader can work out the arrears value, which the rules say must never be included.",
+          "fix": "Acceptable as written; optionally 'The next scheduled Direct Debit collection is due on 9 November'."
+        }
+      ],
       "correctedSummary": null
     },
     "CALL-002": {
@@ -75,7 +86,28 @@
     "CALL-004": {
       "suggestedVerdict": "accept",
       "verifiedNotes": "Inbound call-back (T01 service greeting, T06). DPA verified (T03-T05). £180 rent increase included as a situational cost (T08). I&E completed with about £60 surplus (T14-T15). £40 promise via portal on 28 October with Direct Debit unchanged (T16-T17). Nothing collected on the call (T19).",
-      "findings": [],
+      "findings": [
+        {
+          "id": "004-1",
+          "type": "rule_breach",
+          "severity": "low",
+          "certainty": "definite",
+          "quote": "the customer had reduced other spending",
+          "evidence": ["T10"],
+          "explanation": "The Specificity rule says not to generalise the customer's situation. The customer named the specific cutbacks: cancelled subscriptions, stopped paying for parking at work, and taking the bus. Meaning is intact.",
+          "fix": "the customer had cancelled subscriptions and stopped paying for work parking"
+        },
+        {
+          "id": "004-2",
+          "type": "unsupported",
+          "severity": "low",
+          "certainty": "definite",
+          "quote": "an assessed monthly surplus of £60",
+          "evidence": ["T14", "T15"],
+          "explanation": "The customer gave the surplus as 'about sixty pounds' (T14). Stating exactly £60 is slightly more precise than the transcript supports.",
+          "fix": "an assessed monthly surplus of about £60"
+        }
+      ],
       "correctedSummary": null
     },
     "CALL-005": {
@@ -87,7 +119,18 @@
     "CALL-006": {
       "suggestedVerdict": "accept",
       "verifiedNotes": "Inbound with mother as third party. Authority to Act for this call only (T07-T11) is reported correctly. £220 bank transfer on 30 October (T15-T16). Affordability checked (T16-T17). Understanding confirmed (T21-T22). Review on 2 November (T23).",
-      "findings": [],
+      "findings": [
+        {
+          "id": "006-1",
+          "type": "omission",
+          "severity": "low",
+          "certainty": "uncertain",
+          "quote": null,
+          "evidence": ["T06", "T10"],
+          "explanation": "The customer said 'I get flustered with the dates' (T06), and their mother is helping them keep track (T10). This may be a vulnerability indicator, but the agent did not treat it as one or seek consent, so whether the summary should mention it is a judgement call.",
+          "fix": "Optionally add: the customer said they get flustered with dates, which is why their mother joined the call."
+        }
+      ],
       "correctedSummary": null
     },
     "CALL-007": {
