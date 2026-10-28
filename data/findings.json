@@ -254,8 +254,8 @@
           "severity": "medium",
           "certainty": "definite",
           "quote": "Payment of £230 made",
-          "evidence": ["T10", "T14"],
-          "explanation": "Rules: never include amounts for payments taken during the call; use 'Payment made'. The amount is correct but must not appear.",
+          "evidence": ["T10", "T11", "T14"],
+          "explanation": "Rules: never include amounts for payments taken during the call; use 'Payment made'. The amount is correct (customer states it at T10, agent confirms it at T11, payment succeeds at T14) but must not appear.",
           "fix": "Payment made"
         }
       ],
