@@ -350,6 +350,12 @@ document.getElementById('help-btn').addEventListener('click', () => {
   const h = document.getElementById('help');
   h.hidden = !h.hidden;
 });
+document.getElementById('reset-all').addEventListener('click', () => {
+  if (!confirm('Clear all verdicts, finding decisions, corrected summaries and notes for every call? This cannot be undone.')) return;
+  state = {};
+  try { localStorage.removeItem(STORE_KEY); } catch { /* storage unavailable */ }
+  selectCall(currentId || calls[0].id);
+});
 document.getElementById('export-json').addEventListener('click', () =>
   download('summary-review-decisions.json', JSON.stringify(exportRows(), null, 2), 'application/json'));
 document.getElementById('export-csv').addEventListener('click', () =>

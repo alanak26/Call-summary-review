@@ -28,7 +28,7 @@ Any static file server also works. Opening `index.html` directly from disk does 
    Mark each finding *Agree* or *Disagree*. Accurate summaries show what was checked, so the reviewer can see *why* the summary passed.
 4. **Rule checks (automated).** Deterministic checks of `summary-rules.txt`, run live in the browser.
 5. **Decision.** Choose *Accept summary* or *Needs correction*. The corrected-summary box is prefilled with a suggested correction, and the rule checks re-run on it as you type. Add a reviewer note if needed.
-6. **Export.** Decisions download as JSON or CSV for hand-off. Progress is saved in this browser only (localStorage).
+6. **Export.** Decisions download as JSON or CSV for hand-off. Progress is saved in this browser only (localStorage). **Reset all** in the header clears it after a confirmation prompt.
 
 Keyboard: `j`/`k` move to the next/previous call, `a` accepts, `c` marks *needs correction*.
 
