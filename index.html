@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Call Summary Review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Call Summary Review</h1>
+      <span class="sub">QA check of collections-call summaries against transcripts</span>
+    </div>
+    <div class="top-actions">
+      <span id="progress" class="progress" aria-live="polite"></span>
+      <button id="help-btn" class="btn ghost" type="button">How it works</button>
+      <button id="export-json" class="btn" type="button">Export JSON</button>
+      <button id="export-csv" class="btn" type="button">Export CSV</button>
+    </div>
+  </header>
+
+  <section id="help" class="help" hidden>
+    <p><strong>Workflow.</strong> Pick a call from the queue. Read the summary next to the transcript. Every flagged claim links to the transcript turns that support the finding. For each finding, choose <em>Agree</em> or <em>Disagree</em>, then set a verdict for the summary. If it needs correcting, edit the suggested corrected summary; the automated rule checks re-run as you type. Your decisions are saved in this browser. Export them as JSON or CSV to hand off.</p>
+    <p><strong>Two sources of findings.</strong> <span class="pill src-analyst">Analyst</span> findings are a pre-computed expert review of each call against the summary rules. They cover meaning, such as contradictions, unsupported claims and omissions. <span class="pill src-auto">Automated</span> checks are deterministic rules that run live on any summary text. They catch rule breaches and some factual mismatches, can produce false positives, and cannot judge meaning.</p>
+    <p><strong>Severity</strong> reflects how likely the summary is to mislead a colleague. <span class="pill sev-high">High</span>: a wrong commitment, payment, permission, consent, hold or call direction. <span class="pill sev-medium">Medium</span>: required compliance, hardship or cause details missing, or a privacy or money rule breached. <span class="pill sev-low">Low</span>: wording precision. <strong>Certainty</strong> separates definite errors from judgement calls.</p>
+    <p class="muted">Keyboard: <kbd>j</kbd>/<kbd>k</kbd> next/previous call, <kbd>a</kbd> accept, <kbd>c</kbd> needs correction.</p>
+  </section>
+
+  <main class="layout">
+    <aside class="queue" aria-label="Call queue">
+      <div class="filters" role="group" aria-label="Filter calls">
+        <button class="chip active" data-filter="all" type="button">All</button>
+        <button class="chip" data-filter="attention" type="button">Flagged</button>
+        <button class="chip" data-filter="unreviewed" type="button">Unreviewed</button>
+        <button class="chip" data-filter="reviewed" type="button">Reviewed</button>
+      </div>
+      <ol id="queue-list" class="queue-list"></ol>
+    </aside>
+
+    <section class="review" id="review" aria-label="Summary review"></section>
+
+    <section class="transcript" aria-label="Transcript">
+      <div class="panel-head">
+        <h2>Transcript</h2>
+        <span class="muted small">Reference source</span>
+      </div>
+      <ol id="turns" class="turns"></ol>
+    </section>
+  </main>
+
+  <noscript><p class="help">This review tool needs JavaScript.</p></noscript>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

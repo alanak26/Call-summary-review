@@ -1,0 +1,389 @@
+{
+  "meta": {
+    "source": "Analyst review of each transcript against summary-rules.txt and candidate-readme.md",
+    "types": {
+      "contradiction": "Summary states something the transcript contradicts",
+      "unsupported": "Summary states something the transcript does not support",
+      "omission": "Information discussed and required by the rules is missing",
+      "rule_breach": "Fact may be correct but the summary breaches a rule"
+    },
+    "severity": {
+      "high": "Could mislead a colleague about a commitment, payment, permission, consent, hold or call direction",
+      "medium": "Required compliance, hardship or cause information missing, or a privacy/money rule breached",
+      "low": "Wording precision or minor rule deviation; meaning largely intact"
+    }
+  },
+  "calls": {
+    "CALL-001": {
+      "suggestedVerdict": "accept",
+      "verifiedNotes": "Inbound (T01 service greeting). DPA verified (T03-T05). No arrears figure. Payment made with no amount (T15). Direct Debit moved to the 8th with first collection 9 November because the 8th is a Sunday (T19). Understanding confirmed (T20-T21).",
+      "findings": [],
+      "correctedSummary": null
+    },
+    "CALL-002": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "002-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "The customer agreed to pay £150 through the online portal on 23 October",
+          "evidence": ["T14", "T15", "T16", "T22"],
+          "explanation": "The customer withdrew £150 after remembering the electricity bill and agreed £100. The agent confirmed £100 on 23 October (T15) and the customer repeated it (T16, T22).",
+          "fix": "The customer agreed to pay £100 through the online portal on 23 October."
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. A clutch repair costing £780 prevented the customer from making the instalment despite unchanged working hours and wages. The agent attempted to secure a payment during the call, but the customer declined, and the customer also declined an I&E assessment. The customer agreed to pay £100 through the online portal on 23 October and the agent checked the customer's understanding; the next steps are for the company to call on 26 October after 4 pm to review the remaining arrears."
+    },
+    "CALL-003": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "003-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "Consent gained to record vulnerability",
+          "evidence": ["T09", "T10", "T11"],
+          "explanation": "The customer explicitly declined to have the anxiety recorded (T10) and the agent agreed not to record it (T11). Recording consent that was refused is a serious misstatement.",
+          "fix": "State that the customer reported anxiety but declined consent to record it."
+        },
+        {
+          "id": "003-2",
+          "type": "rule_breach",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": "arrears of £460 were discussed",
+          "evidence": ["T05"],
+          "explanation": "Rules: never include specific numerical values for current arrears or balance. The figure is correct (T05) but must not appear.",
+          "fix": "arrears were discussed"
+        },
+        {
+          "id": "003-3",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": null,
+          "evidence": ["T08"],
+          "explanation": "Severe hardship must be stated specifically. The customer said they have no money for food and are relying on their sister for shopping. The summary omits this.",
+          "fix": "Add: the customer stated they have no money for food."
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company and arrears were discussed. The customer's partner moved out taking all of their joint savings, their zero-hour contract provided two shifts last week and none this week, and they stated they have no money for food. The customer reported anxiety but declined consent to record it; the I&E assessment was deferred until the rota is available, the agent explained possible credit file impact, the customer was referred to Citizens Advice and customer signposted to the company website, and the agent checked the customer's understanding. A thirty-day hold on collection contact was applied and no payment was agreed; the next steps are to seek advice before the company calls on 4 November to review the position and complete the I&E assessment."
+    },
+    "CALL-004": {
+      "suggestedVerdict": "accept",
+      "verifiedNotes": "Inbound call-back (T01 service greeting, T06). DPA verified (T03-T05). £180 rent increase included as a situational cost (T08). I&E completed with about £60 surplus (T14-T15). £40 promise via portal on 28 October with Direct Debit unchanged (T16-T17). Nothing collected on the call (T19).",
+      "findings": [],
+      "correctedSummary": null
+    },
+    "CALL-005": {
+      "suggestedVerdict": "accept",
+      "verifiedNotes": "Outbound (T01). DPA verified (T03-T05). Turbo failure costing £800 included (T08). Card attempt declined and recorded as an attempt (T12-T16). Call 21 October after 1 pm (T20-T22). No payment arrangement (T24).",
+      "findings": [],
+      "correctedSummary": null
+    },
+    "CALL-006": {
+      "suggestedVerdict": "accept",
+      "verifiedNotes": "Inbound with mother as third party. Authority to Act for this call only (T07-T11) is reported correctly. £220 bank transfer on 30 October (T15-T16). Affordability checked (T16-T17). Understanding confirmed (T21-T22). Review on 2 November (T23).",
+      "findings": [],
+      "correctedSummary": null
+    },
+    "CALL-007": {
+      "suggestedVerdict": "accept",
+      "verifiedNotes": "Outbound (T01). DPA verified (T03-T05). Cause is specific (T08). Payment made with no amount (T15). New Direct Debit from 16 November (T17-T20). Next steps match (T22-T24). 'brake' in T25 is a transcription error for 'break' and is irrelevant.",
+      "findings": [],
+      "correctedSummary": null
+    },
+    "CALL-008": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "008-1",
+          "type": "unsupported",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "The agent confirmed a default notice had been issued",
+          "evidence": ["T06", "T07", "T15"],
+          "explanation": "Only an arrears letter is mentioned (T06). No default notice is discussed anywhere in the call. Stating that a default notice was issued overstates the account's escalation.",
+          "fix": "Remove the default notice claim; optionally note the call was about an arrears letter."
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company about an arrears letter, and arrears were discussed. A job change moved payday from the twenty-fifth to the last Friday of the month, causing the missed payment. The agent checked the customer's understanding, and the customer agreed to pay £120 through the online portal on 30 October. The next steps are for the customer to reset their portal password and contact the company if wages are delayed, and for the company to call on 2 November, preferably after 5.30 pm, about the remaining arrears."
+    },
+    "CALL-009": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "009-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "The customer refused an I&E assessment scheduled for 21 October after 6 pm",
+          "evidence": ["T11", "T12", "T13", "T15", "T20"],
+          "explanation": "The customer agreed to the assessment but asked to do it the next evening with their bills to hand (T12). The agent scheduled it (T13, T15). Calling this an I&E refusal is wrong and contradicts the scheduled assessment.",
+          "fix": "The customer agreed to complete an I&E assessment on the company's call on 21 October after 6 pm."
+        },
+        {
+          "id": "009-2",
+          "type": "unsupported",
+          "severity": "low",
+          "certainty": "uncertain",
+          "quote": "The agent attempted to secure a payment, but the customer declined",
+          "evidence": ["T09", "T10"],
+          "explanation": "The agent asked whether anything could be paid today and the customer said no. This is a reasonable reading of a payment attempt, matching how CALL-002 is treated, but it is a request rather than an attempted transaction.",
+          "fix": "Acceptable as written; reviewer judgement."
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. Overtime was suspended until Christmas, reducing monthly income by £300 while basic pay is unchanged. The agent attempted to secure a payment, but the customer declined; the customer agreed to complete an I&E assessment on the company's call on 21 October after 6 pm, possible credit file impact was explained, and the agent checked the customer's understanding. No payment amount was agreed; the next steps are for the customer to prepare income figures without overtime and essential expenses for the assessment call."
+    },
+    "CALL-010": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "010-1",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": null,
+          "evidence": ["T08", "T10"],
+          "explanation": "The specific cause of non-payment is missing: the customer's husband cancelled the Direct Debit from the joint account by mistake during a divorce mix-up. This is almost exactly the worked example in the rules' Specificity section.",
+          "fix": "Add: the customer's husband cancelled the Direct Debit by mistake due to a divorce mix-up."
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company and arrears were discussed. The customer's husband cancelled the Direct Debit by mistake when moving his bills out of their joint account due to a divorce mix-up, and the customer has opened their own account. The agent checked affordability and the customer's understanding, and the customer agreed to pay £205 through the online portal on 27 October. A new Direct Debit instruction was set up for future collections; the next steps are to check the confirmations and contact the company before the payment date if any details differ."
+    },
+    "CALL-011": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "011-1",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": null,
+          "evidence": ["T15", "T22"],
+          "explanation": "The agent directed the customer to the company website support page (T15) and the customer said they would look at it (T22). The rules require the phrase 'customer signposted'.",
+          "fix": "Add 'customer signposted' to the company website."
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. A broken wrist caused absence from work, with sick pay reducing monthly income by £400; Consent gained to record vulnerability. The customer was referred to MoneyHelper and customer signposted to the company website, and the agent checked understanding that a contact hold does not cancel payments or arrears. A fourteen-day hold on collection contact was applied; the next steps are for the customer to seek advice and clarify their return to work before the company calls on 3 November to review income and discuss an affordable plan."
+    },
+    "CALL-012": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "012-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "whose ongoing Authority to Act was verified",
+          "evidence": ["T08", "T09", "T23"],
+          "explanation": "The customer authorised the father for this call only and said they did not want him added for future calls (T08). The agent recorded it as for this call only (T09). 'Ongoing' could lead a colleague to discuss the account with the father later.",
+          "fix": "whose Authority to Act was verified for this call only"
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company with their father, whose Authority to Act was verified for this call only, and arrears were discussed. A lack of agency shifts on a zero-hour contract caused the missed payments, and future shifts remained uncertain. The I&E assessment was deferred until the payslip and rota are available, possible credit file impact for the account holder was explained, and the agent checked the customer's understanding. The next steps are for the customer to prepare income and essential expense figures for the company's call on 23 October after 3 pm; no payment commitment was made."
+    },
+    "CALL-013": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "013-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "Payment made",
+          "evidence": ["T11", "T12", "T22", "T23"],
+          "explanation": "No payment was taken. The customer had no funds today (T12) and the agent confirmed 'no payment has been taken today' (T23). A colleague would wrongly believe the arrears were partly paid.",
+          "fix": "Remove 'Payment made'; state that no payment was taken during the call."
+        },
+        {
+          "id": "013-2",
+          "type": "omission",
+          "severity": "low",
+          "certainty": "uncertain",
+          "quote": null,
+          "evidence": ["T11", "T12"],
+          "explanation": "The agent asked for a payment during the call and the customer declined. If this counts as a payment attempt, as in CALL-002 and CALL-009, the rules require it to be recorded.",
+          "fix": "Add: the agent attempted to secure a payment during the call, but the customer declined."
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. Replacing a failed washing machine for £340 used the funds reserved for the instalment. The agent attempted to secure a payment during the call, but the customer declined; after the agent checked affordability and the customer's understanding, the customer agreed to pay £60 by bank transfer on 23 October using their account reference. The next steps are to retain the transfer confirmation and for the company to call on 27 October, preferably after 10 am, to review receipt and the remaining arrears."
+    },
+    "CALL-014": {
+      "suggestedVerdict": "needs_correction",
+      "verifiedNotes": "'No DPA stated with agent' is correct: only name and postcode were taken to locate the account (T03-T05).",
+      "findings": [
+        {
+          "id": "014-1",
+          "type": "rule_breach",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": "Cedar Lane Distribution",
+          "evidence": ["T08"],
+          "explanation": "Privacy rule: specific entity names such as future employers must be removed.",
+          "fix": "the customer's new employer"
+        }
+      ],
+      "correctedSummary": "No DPA stated with agent. The customer called the company and arrears were discussed. A week between jobs reduced income, and the first wage payment from the customer's new employer on 28 October will cover only part of a month. An I&E assessment was planned and the agent checked the customer's understanding; no payment amount was committed. The next steps are for the customer to prepare income and essential expense figures and call on 28 October after work to agree an affordable arrangement."
+    },
+    "CALL-015": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "015-1",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": null,
+          "evidence": ["T13", "T15"],
+          "explanation": "The agent explicitly warned that the account is at risk of further action (T13) and repeated the warning (T15). The rules state the summary MUST use the phrase 'risk of further action'. The compliance evidence is lost.",
+          "fix": "Add: the agent warned that the account is at risk of further action if the arrears remain unresolved."
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. Loss of an evening cleaning job reduced monthly income by £250, while the daytime job continued. An I&E assessment was arranged, the agent warned that the account is at risk of further action if the arrears remain unresolved, and the agent checked understanding that the assessment does not clear the missed payments. The next steps are for the customer to prepare remaining income and essential expense figures for the company's call on 22 October after 6 pm; no payment amount was agreed."
+    },
+    "CALL-016": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "016-1",
+          "type": "rule_breach",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": "Payment of £230 made",
+          "evidence": ["T10", "T14"],
+          "explanation": "Rules: never include amounts for payments taken during the call; use 'Payment made'. The amount is correct but must not appear.",
+          "fix": "Payment made"
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company and arrears were discussed. A misunderstanding of pending and available bank balances left insufficient funds for the Direct Debit. The agent checked the customer's understanding; Payment made, and the existing Direct Debit remains active with the next collection on 10 November. The next steps are to retain the emailed payment confirmation, check the bank's balance display, ensure funds are available for collection and contact the company if the confirmation differs."
+    },
+    "CALL-017": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "017-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "A thirty-day hold on collection contact was applied",
+          "evidence": ["T13", "T19"],
+          "explanation": "The agent offered and applied a fourteen-day hold (T13, T19). Thirty days would suppress contact for over two weeks longer than agreed.",
+          "fix": "A fourteen-day hold on collection contact was applied"
+        },
+        {
+          "id": "017-2",
+          "type": "omission",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "Consent gained to record vulnerability",
+          "evidence": ["T06", "T08", "T10", "T11", "T12"],
+          "explanation": "The summary records consent without stating the vulnerability or cause. The customer's mother died last month and the bank froze their joint account during the bereavement paperwork, trapping the instalment money. The rules require this severe hardship to be specific; 'bereavement resulted in frozen bank accounts' is the rules' own example. A colleague calling back would be unaware of the bereavement.",
+          "fix": "State the bereavement, the frozen joint account, the lack of a release date and that the customer remains employed."
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. The customer's mother died last month and the bank has frozen their joint account while bereavement paperwork is processed, leaving the money set aside for the instalment inaccessible with no release date, although the customer remains in regular employment; Consent gained to record vulnerability. The customer was referred to Citizens Advice, a fourteen-day hold on collection contact was applied while they deal with the bank and seek advice, and the agent checked understanding that the hold does not cancel the arrears. The next steps are to seek advice and update the company if bank access changes before the company's review call on 3 November; no payment commitment was made."
+    },
+    "CALL-018": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "018-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "Authority to Act was verified for the partner",
+          "evidence": ["T07", "T08", "T10", "T22"],
+          "explanation": "The customer declined to authorise the partner (T08). The agent refused to discuss the balance with the partner (T10) and confirmed no Authority to Act was granted (T22). The summary states the opposite, which could lead to a data breach on a later call.",
+          "fix": "The agent refused to discuss account details with the partner due to lack of Authority to Act."
+        },
+        {
+          "id": "018-2",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": null,
+          "evidence": ["T14", "T15", "T16"],
+          "explanation": "The customer declined an I&E assessment (T15) and the agent recorded the refusal (T16). The rules require I&E refusals to be stated.",
+          "fix": "Add: the customer declined an I&E assessment."
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company with their partner present, but the customer did not authorise the partner, so the agent refused to discuss account details with the partner due to lack of Authority to Act; arrears were discussed with the customer. Working hours were temporarily reduced from five to four days a week with no end date given, lowering monthly income by £220. The customer declined an I&E assessment, stating their finances are normally fine. The agent checked understanding, and the customer agreed to pay £75 through the online portal on 26 October; the next steps are for the customer to call on 27 October to review the payment and remaining arrears."
+    },
+    "CALL-019": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "019-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "The customer called the company",
+          "evidence": ["T01", "T02"],
+          "explanation": "The agent opened by asking for the customer by name (T01), so this was an outbound call. The call direction is wrong.",
+          "fix": "The company called and reached the customer"
+        },
+        {
+          "id": "019-2",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": "the customer disclosed the condition",
+          "evidence": ["T09", "T10", "T11"],
+          "explanation": "The agent asked permission to record the depression and reduced pay and the customer agreed (T09-T10). The mandatory phrase 'Consent gained to record vulnerability' is missing; 'disclosed the condition' understates it.",
+          "fix": "Consent gained to record vulnerability."
+        },
+        {
+          "id": "019-3",
+          "type": "contradiction",
+          "severity": "low",
+          "certainty": "definite",
+          "quote": "on 23 October at 2 pm",
+          "evidence": ["T15", "T22"],
+          "explanation": "The call was agreed for 'after two' (T15, T22), not at exactly 2 pm.",
+          "fix": "on 23 October after 2 pm"
+        }
+      ],
+      "correctedSummary": "DPA completed. The company called and reached the customer, and arrears were discussed. Absence from work with depression for about six weeks reduced monthly income by about £500 when full pay ended and sick pay began; Consent gained to record vulnerability. An I&E assessment was arranged, the customer was referred to StepChange and customer signposted to the company website, and the agent checked understanding that the hold does not write off the arrears or guarantee there will be no credit file impact. A seven-day hold on collection contact was applied while retaining the agreed assessment call; the next steps are to prepare financial figures with the support worker, seek advice and take the company's call on 23 October after 2 pm; no payment was agreed."
+    },
+    "CALL-020": {
+      "suggestedVerdict": "needs_correction",
+      "findings": [
+        {
+          "id": "020-1",
+          "type": "contradiction",
+          "severity": "high",
+          "certainty": "definite",
+          "quote": "the customer agreed to pay £80 on 23 October",
+          "evidence": ["T16", "T17", "T22"],
+          "explanation": "The customer explicitly asked that the £80 not be recorded as agreed (T16). The agent confirmed it would not be a promise (T17) and the customer repeated this (T22). Only the £50 taken today happened.",
+          "fix": "Remove the £80 promise; state that no future payment was agreed."
+        },
+        {
+          "id": "020-2",
+          "type": "omission",
+          "severity": "medium",
+          "certainty": "definite",
+          "quote": null,
+          "evidence": ["T19"],
+          "explanation": "The agent explicitly warned that the account remains at risk of further action (T19). The rules require the phrase 'risk of further action'.",
+          "fix": "Add: the agent warned that the account remains at risk of further action."
+        },
+        {
+          "id": "020-3",
+          "type": "omission",
+          "severity": "low",
+          "certainty": "uncertain",
+          "quote": "emergency childcare during a three-day school closure",
+          "evidence": ["T10"],
+          "explanation": "The childcare cost of £210 is a specific factor affecting ability to pay. The rules require such financial values, though the examples given are car repairs and income changes.",
+          "fix": "emergency childcare costing £210 during a three-day school closure"
+        }
+      ],
+      "correctedSummary": "DPA completed. The customer called the company, arrears and a default notice were discussed, and emergency childcare costing £210 during a three-day school closure caused a shortfall. The customer declined an I&E assessment today; Payment made. The agent warned that the account remains at risk of further action because the payment does not resolve all arrears or cancel the notice, and checked the customer's understanding. No future payment was agreed; the next steps are to read the notice, prepare income and essential expense figures and call on 23 October after work to review affordability."
+    }
+  }
+}

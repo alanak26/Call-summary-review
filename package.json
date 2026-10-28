@@ -1,0 +1,11 @@
+{
+  "name": "call-summary-review",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "QA review surface for collections-call summaries",
+  "scripts": {
+    "start": "node serve.mjs",
+    "test": "node --test tests/checks.test.mjs"
+  }
+}
